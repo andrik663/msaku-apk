@@ -28,13 +28,12 @@ task clean(type: Delete) {
     delete rootProject.buildDir
 }
 
-// Force Java 21 for every JavaCompile task (auto-provisioned toolchain via
-// foojay resolver in settings.gradle). Capacitor 8 modules use source/target
-// 21 even when CI pins an older JDK.
+// Force Java 21 toolchain for every JavaCompile task (auto-provisioned by
+// Gradle via the foojay resolver in settings.gradle). Capacitor 8 modules
+// compile with source/target 21 even when CI pins an older JDK.
 subprojects {
-    def tc21 = org.gradle.jvm.toolchain.JavaLanguageVersion.of(21)
     tasks.withType(JavaCompile).configureEach { task ->
         javaCompiler.set(project.getExtensions().findByType(org.gradle.jvm.toolchain.JavaToolchainService)
-            ?.compilerFor(tc21).orNull)
+            .compilerFor { it.languageVersion.set(org.gradle.jvm.toolchain.JavaLanguageVersion.of(21)) })
     }
 }
