@@ -43,10 +43,15 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             
-            // Fail release build if Maps API key is missing
-            def mapsKey = defaultConfig.manifestPlaceholders['GOOGLE_MAPS_API_KEY']
-            if (!mapsKey || mapsKey.isEmpty()) {
-                throw new GradleException('GOOGLE_MAPS_API_KEY is required for release builds. Set it in local.properties or as environment variable.')
+            // Fail release build if Maps API key is missing (debug builds skip this).
+            // CI builds debug APKs without the key; the WebView app loads maps
+            // from msaku.id (web API key), so a missing native key only affects
+            // the native Map view placeholder.
+            if (gradle.startParameter.taskNames.any { it.toString().toLowerCase().contains('release') }) {
+                def mapsKey = defaultConfig.manifestPlaceholders['GOOGLE_MAPS_API_KEY']
+                if (!mapsKey || mapsKey.isEmpty()) {
+                    throw new GradleException('GOOGLE_MAPS_API_KEY is required for release builds. Set it in local.properties or as environment variable.')
+                }
             }
         }
         debug {
