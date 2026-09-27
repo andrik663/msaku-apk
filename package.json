@@ -1,0 +1,19 @@
+{
+  "name": "msaku-apk",
+  "version": "1.1.0",
+  "private": true,
+  "description": "Standalone Android build for the msaku app (Capacitor WebView shell)",
+  "scripts": {
+    "build:apk": "cd android && ./gradlew assembleDebug"
+  },
+  "dependencies": {
+    "@capacitor/android": "^8.0.1",
+    "@capacitor/app": "^8.0.0",
+    "@capacitor/core": "^8.0.1",
+    "@capacitor/filesystem": "^8.1.2",
+    "@capacitor/haptics": "^8.0.0",
+    "@capacitor/keyboard": "^8.0.0",
+    "@capacitor/local-notifications": "^8.0.1",
+    "@capawesome/capacitor-app-update": "^8.0.2"
+  }
+}

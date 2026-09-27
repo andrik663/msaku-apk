@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Network Security Configuration for Muslim Saku App
+  Enforces HTTPS for most communications, but allows HTTP for video CDN domains
+  See: https://developer.android.com/training/articles/security-config
+-->
+<network-security-config>
+    <!-- Default configuration: trust only system CAs, no cleartext -->
+    <base-config cleartextTrafficPermitted="false">
+        <trust-anchors>
+            <certificates src="system" />
+        </trust-anchors>
+    </base-config>
+    
+    <!-- Production domain configuration (HTTPS only) -->
+    <domain-config cleartextTrafficPermitted="false">
+        <domain includeSubdomains="true">msaku.id</domain>
+        
+        <!-- AWS S3 Storage for uploads (images, videos, audio, avatars) -->
+        <domain includeSubdomains="true">amazonaws.com</domain>
+        <domain includeSubdomains="true">s3.amazonaws.com</domain>
+        <domain includeSubdomains="true">s3.ap-southeast-1.amazonaws.com</domain>
+        <domain includeSubdomains="true">s3.us-east-1.amazonaws.com</domain>
+        
+        <!-- OSRM routing API for map directions -->
+        <domain includeSubdomains="true">router.project-osrm.org</domain>
+        <!-- Map tile servers -->
+        <domain includeSubdomains="true">basemaps.cartocdn.com</domain>
+        <domain includeSubdomains="true">arcgisonline.com</domain>
+        <domain includeSubdomains="true">tile.openstreetmap.org</domain>
+        <!-- OpenStreetMap services -->
+        <domain includeSubdomains="true">nominatim.openstreetmap.org</domain>
+        <trust-anchors>
+            <certificates src="system" />
+        </trust-anchors>
+    </domain-config>
+    
+    <!-- Video CDN domains - Allow cleartext for compatibility with some CDN redirects -->
+    <domain-config cleartextTrafficPermitted="true">
+        <!-- NetShort video streaming CDN -->
+        <domain includeSubdomains="true">netshort.com</domain>
+        <domain includeSubdomains="true">sansekai.my.id</domain>
+        
+        <!-- ByteDance video CDN (TikTok/Douyin infrastructure used by NetShort) -->
+        <domain includeSubdomains="true">bytedance.com</domain>
+        <domain includeSubdomains="true">bytecdn.cn</domain>
+        <domain includeSubdomains="true">toutiaostatic.com</domain>
+        <domain includeSubdomains="true">bytegecko.com</domain>
+        <domain includeSubdomains="true">byted-static.com</domain>
+        <domain includeSubdomains="true">ibyteimg.com</domain>
+        <domain includeSubdomains="true">snssdk.com</domain>
+        <domain includeSubdomains="true">pstatp.com</domain>
+        <domain includeSubdomains="true">amemv.com</domain>
+        <domain includeSubdomains="true">douyincdn.com</domain>
+        <domain includeSubdomains="true">douyinvod.com</domain>
+        <domain includeSubdomains="true">ixigua.com</domain>
+        <domain includeSubdomains="true">huoshan.com</domain>
+        
+        <!-- CloudFront CDN for video delivery -->
+        <domain includeSubdomains="true">cloudfront.net</domain>
+        
+        <trust-anchors>
+            <certificates src="system" />
+        </trust-anchors>
+    </domain-config>
+    
+    <!-- Debug configuration: Allow localhost for development only -->
+    <debug-overrides>
+        <trust-anchors>
+            <certificates src="user" />
+        </trust-anchors>
+    </debug-overrides>
+</network-security-config>

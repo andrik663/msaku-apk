@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<resources>
+    <string name="app_name">msaku</string>
+    <string name="title_activity_main">msaku</string>
+    <string name="package_name">com.sholatbre.app</string>
+    <string name="custom_url_scheme">com.sholatbre.app</string>
+
+    <!--
+        Google Sign-In (native).
+        IMPORTANT: Replace the value below with the OAuth 2.0 *Web application*
+        Client ID from Google Cloud Console (the same value used for
+        GOOGLE_CLIENT_ID / NEXT_PUBLIC_GOOGLE_CLIENT_ID on the server).
+        Do NOT use the Android client ID here – the Capacitor Google Auth
+        plugin requires the Web client ID as `server_client_id` so the
+        backend can verify tokens.
+    -->
+    <string name="server_client_id">1007022221126-uhf0a15kdgrgg8vr4e81k5favm9hfrit.apps.googleusercontent.com</string>
+</resources>

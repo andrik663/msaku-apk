@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- External storage root (for gallery images/videos) -->
+    <external-path name="external_files" path="." />
+    
+    <!-- External media directories -->
+    <external-path name="external_images" path="DCIM/" />
+    <external-path name="external_pictures" path="Pictures/" />
+    <external-path name="external_movies" path="Movies/" />
+    <external-path name="external_downloads" path="Download/" />
+    <external-path name="external_music" path="Music/" />
+    <external-path name="external_audio" path="Recordings/" />
+    <external-path name="external_documents" path="Documents/" />
+    
+    <!-- App-specific external files -->
+    <external-files-path name="external_files_path" path="." />
+    <external-files-path name="external_images_path" path="images/" />
+    <external-files-path name="external_videos_path" path="videos/" />
+    <external-files-path name="external_audio_path" path="audio/" />
+    
+    <!-- Cache directories (for temporary upload files) -->
+    <cache-path name="cache_files" path="." />
+    <cache-path name="cache_uploads" path="uploads/" />
+    <external-cache-path name="external_cache" path="." />
+    
+    <!-- Internal files -->
+    <files-path name="internal_files" path="." />
+    <files-path name="internal_images" path="images/" />
+    <files-path name="internal_uploads" path="uploads/" />
+    
+    <!-- Root path for ContentResolver URIs (media picker compatibility) -->
+    <root-path name="root" path="." />
+</paths>

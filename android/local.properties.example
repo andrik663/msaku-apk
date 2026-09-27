@@ -1,0 +1,10 @@
+# Local properties file for Muslim Saku Android app
+# This file should NOT be committed to version control
+# Copy this file to local.properties and fill in your values
+
+# Google Maps API Key
+# Get your key from: https://console.cloud.google.com/google/maps-apis/
+# Enable the following APIs:
+# - Maps SDK for Android
+# - Places API (if using places search)
+GOOGLE_MAPS_API_KEY=your_google_maps_api_key_here
