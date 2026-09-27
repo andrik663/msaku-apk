@@ -28,17 +28,19 @@ task clean(type: Delete) {
     delete rootProject.buildDir
 }
 
-// Force Java 21 toolchain (auto-provisioned by Gradle) for all modules.
-// Required because Capacitor 8 modules compile with source/target 21 while CI
-// may only pin JDK 17. Requires the foojay resolver in settings.gradle.
+// Force Java 21 toolchain (auto-provisioned by Gradle via foojay) for every
+// module. Capacitor 8 compiles with source/target 21 even if CI pins JDK 17.
 subprojects {
-    afterEvaluate {
-        if (project.hasProperty('android') || project.name == 'app') {
-            tasks.withType(JavaCompile).configureEach {
-                javaCompiler.set(
-                    project.getExtensions().getByType(org.gradle.jvm.toolchain.JavaToolchainService.class)
-                        .compilerFor(org.gradle.jvm.toolchain.JavaLanguageVersion.of(21))
-                )
+    plugins.withId("com.android.application") {
+        android { compileOptions { sourceCompatibility = JavaVersion.VERSION_21; targetCompatibility = JavaVersion.VERSION_21 } }
+    }
+    if (project.name != "app") {
+        plugins.withId("com.android.library") {
+            android { compileOptions { sourceCompatibility = JavaVersion.VERSION_21; targetCompatibility = JavaVersion.VERSION_21 } }
+        }
+        java {
+            toolchain {
+                languageVersion = org.gradle.jvm.toolchain.JavaLanguageVersion.of(21)
             }
         }
     }
