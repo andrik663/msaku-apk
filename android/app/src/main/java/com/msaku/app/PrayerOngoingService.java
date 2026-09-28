@@ -1,4 +1,4 @@
-package com.sholatbre.app;
+package com.msaku.app;
 
 import android.app.Notification;
 import android.app.NotificationChannel;
@@ -14,7 +14,7 @@ import androidx.core.app.NotificationCompat;
 
 public class PrayerOngoingService extends Service {
 
-    public static final String ACTION_UPDATE = "com.sholatbre.app.action.UPDATE_PRAYER";
+    public static final String ACTION_UPDATE = "com.msaku.app.action.UPDATE_PRAYER";
     public static final String EXTRA_TITLE = "title";
     public static final String EXTRA_MESSAGE = "message";
 

@@ -1,4 +1,4 @@
-package com.sholatbre.app;
+package com.msaku.app;
 
 import android.Manifest;
 import android.app.Activity;
@@ -411,7 +411,7 @@ public class MainActivity extends BridgeActivity {
         if (intent == null) return;
         Uri data = intent.getData();
         if (data == null) return;
-        if (!"com.sholatbre.app".equals(data.getScheme()) || !"auth".equals(data.getHost())) return;
+        if (!"com.msaku.app".equals(data.getScheme()) || !"auth".equals(data.getHost())) return;
 
         String payload = data.getQueryParameter("payload");
         if (payload == null || payload.isEmpty()) return;
@@ -435,7 +435,7 @@ public class MainActivity extends BridgeActivity {
 
     private void handleDeeplinkIntent(Intent intent) {
         if (intent == null) return;
-        if (!"com.sholatbre.app.OPEN_DEEPLINK".equals(intent.getAction())) return;
+        if (!"com.msaku.app.OPEN_DEEPLINK".equals(intent.getAction())) return;
 
         String deeplink = intent.getStringExtra("deeplink");
         if (deeplink == null || deeplink.isEmpty()) return;
@@ -462,7 +462,7 @@ public class MainActivity extends BridgeActivity {
     private void handleDismissAlarmIntent(Intent intent) {
         if (intent == null) return;
         String action = intent.getAction();
-        if ("com.sholatbre.app.DISMISS_ALARM".equals(action)) {
+        if ("com.msaku.app.DISMISS_ALARM".equals(action)) {
             Log.d(TAG, "DISMISS_ALARM intent received, stopping WebView audio");
 
             // Cancel the JS alarm notification

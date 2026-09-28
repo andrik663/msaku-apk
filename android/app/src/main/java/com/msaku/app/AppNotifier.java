@@ -1,4 +1,4 @@
-package com.sholatbre.app;
+package com.msaku.app;
 
 import android.app.Notification;
 import android.app.NotificationChannel;
@@ -118,7 +118,7 @@ public final class AppNotifier {
             }
 
             Intent openIntent = new Intent(context, MainActivity.class);
-            openIntent.setAction("com.sholatbre.app.OPEN_DEEPLINK");
+            openIntent.setAction("com.msaku.app.OPEN_DEEPLINK");
             openIntent.putExtra("deeplink", deeplink);
             openIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
             PendingIntent openPending = PendingIntent.getActivity(

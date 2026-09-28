@@ -1,4 +1,4 @@
-package com.sholatbre.app;
+package com.msaku.app;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

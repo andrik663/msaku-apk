@@ -1,4 +1,4 @@
-package com.sholatbre.app;
+package com.msaku.app;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -25,7 +25,7 @@ import java.util.Set;
 public class InboxSyncReceiver extends BroadcastReceiver {
 
     private static final String TAG = "InboxSync";
-    public static final String ACTION = "com.sholatbre.app.SYNC_INBOX";
+    public static final String ACTION = "com.msaku.app.SYNC_INBOX";
     public static final String PREFS = "msaku_inbox_prefs";
     public static final String KEY_USER_ID = "user_id";
     public static final String KEY_SEEN_IDS = "seen_ids";

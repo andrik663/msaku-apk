@@ -1,4 +1,4 @@
-package com.sholatbre.app;
+package com.msaku.app;
 
 import android.app.Notification;
 import android.app.NotificationChannel;
@@ -33,7 +33,7 @@ public class AlarmAudioService extends Service {
     private static final String TAG = "AlarmAudioService";
     private static final String CHANNEL_ID = "alarm_audio_channel";
     private static final int NOTIFICATION_ID = 1001;
-    private static final String ACTION_STOP = "com.sholatbre.app.ACTION_STOP";
+    private static final String ACTION_STOP = "com.msaku.app.ACTION_STOP";
 
     private MediaPlayer mediaPlayer;
     private PowerManager.WakeLock wakeLock;

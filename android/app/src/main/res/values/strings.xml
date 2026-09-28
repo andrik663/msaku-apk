@@ -2,8 +2,8 @@
 <resources>
     <string name="app_name">msaku</string>
     <string name="title_activity_main">msaku</string>
-    <string name="package_name">com.sholatbre.app</string>
-    <string name="custom_url_scheme">com.sholatbre.app</string>
+    <string name="package_name">com.msaku.app</string>
+    <string name="custom_url_scheme">com.msaku.app</string>
 
     <!--
         Google Sign-In (native).

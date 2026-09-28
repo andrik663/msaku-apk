@@ -1,4 +1,4 @@
-package com.sholatbre.app;
+package com.msaku.app;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;

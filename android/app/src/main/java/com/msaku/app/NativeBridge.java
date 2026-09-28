@@ -1,4 +1,4 @@
-package com.sholatbre.app;
+package com.msaku.app;
 
 import android.Manifest;
 import android.app.Notification;
@@ -197,7 +197,7 @@ public class NativeBridge {
             // Stop action: opens MainActivity with DISMISS_ALARM flag
             // so it can evaluate JS in WebView to stop the HTML Audio
             Intent stopIntent = new Intent(context, MainActivity.class);
-            stopIntent.setAction("com.sholatbre.app.DISMISS_ALARM");
+            stopIntent.setAction("com.msaku.app.DISMISS_ALARM");
             stopIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
             PendingIntent stopPending = PendingIntent.getActivity(
                     context, 100, stopIntent,

@@ -37,7 +37,7 @@
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-                <data android:scheme="com.sholatbre.app" android:host="auth" />
+                <data android:scheme="com.msaku.app" android:host="auth" />
             </intent-filter>
         </activity>
 
@@ -81,7 +81,7 @@
         <!-- Polls order/DM inbox while the app is closed -->
         <receiver android:name=".InboxSyncReceiver" android:enabled="true" android:exported="false">
             <intent-filter>
-                <action android:name="com.sholatbre.app.SYNC_INBOX" />
+                <action android:name="com.msaku.app.SYNC_INBOX" />
             </intent-filter>
         </receiver>
     </application>

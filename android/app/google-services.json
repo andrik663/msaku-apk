@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:1007022221126:android:YOUR_ANDROID_APP_ID",
         "android_client_info": {
-          "package_name": "com.sholatbre.app"
+          "package_name": "com.msaku.app"
         }
       },
       "oauth_client": [
@@ -17,7 +17,7 @@
           "client_id": "1007022221126-YOUR_ANDROID_OAUTH_CLIENT_ID.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.sholatbre.app",
+            "package_name": "com.msaku.app",
             "certificate_hash": "YOUR_SHA1_FINGERPRINT"
           }
         },
