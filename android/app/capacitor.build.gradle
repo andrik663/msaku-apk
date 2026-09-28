@@ -15,6 +15,7 @@ dependencies {
     implementation project(':capacitor-keyboard')
     implementation project(':capacitor-local-notifications')
     implementation project(':capawesome-capacitor-app-update')
+    implementation project(':capawesome-capacitor-google-sign-in')
 
 }
 

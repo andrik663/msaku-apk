@@ -1,11 +1,11 @@
 {
-  "appId": "com.sholatbre.app",
-  "appName": "msaku",
-  "webDir": "public",
-  "server": {
-    "url": "https://www.msaku.id",
-    "androidScheme": "https",
-    "cleartext": false,
-    "errorPath": "offline.html"
-  }
+	"appId": "com.sholatbre.app",
+	"appName": "msaku",
+	"webDir": "www",
+	"server": {
+		"url": "https://www.msaku.id",
+		"androidScheme": "https",
+		"cleartext": false,
+		"errorPath": "offline.html"
+	}
 }

@@ -5,6 +5,17 @@ android {
     compileSdk = rootProject.ext.compileSdkVersion
     ndkVersion = "28.2.13676358"
 
+    signingConfigs {
+        debug {
+            // Committed debug keystore — keeps SHA-1 stable across CI builds so
+            // the Google OAuth Android client (registered fingerprint) works.
+            storeFile rootProject.file("../keystore/debug.keystore")
+            storePassword "android"
+            keyAlias "androiddebugkey"
+            keyPassword "android"
+        }
+    }
+
     defaultConfig {
         applicationId "com.sholatbre.app"
         minSdkVersion rootProject.ext.minSdkVersion
@@ -57,6 +68,9 @@ android {
         debug {
             minifyEnabled false
             debuggable true
+            // Stable debug signing so the Google OAuth Android client SHA-1
+            // registered in Google Cloud Console keeps working across CI builds.
+            signingConfig signingConfigs.debug
         }
     }
 }
