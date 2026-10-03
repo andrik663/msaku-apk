@@ -15,7 +15,7 @@ Setiap kali kode di-push ke branch `main`, GitHub Actions otomatis membangun APK
 Setiap kali maintainer membuat **Release**, APK otomatis ditempel ke release dan tersedia di URL tetap publik:
 
 ```
-https://github.com/andrik663/msaku-apk/releases/latest/download/msaku-v<versi>-debug.apk
+https://github.com/andrik663/msaku-apk/releases/latest/download/msaku-debug.apk
 ```
 
 URL inilah yang dipakai tombol download di web msaku (`/download`).
