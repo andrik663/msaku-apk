@@ -18,7 +18,7 @@ Setiap kali maintainer membuat **Release**, APK otomatis ditempel ke release dan
 https://github.com/andrik663/msaku-apk/releases/latest/download/msaku-debug.apk
 ```
 
-URL inilah yang dipakai tombol download di web msaku (`/download`).
+URL inilah yang dipakai tombol "Download APK" di beranda dashboard web msaku (halaman `/download` sudah dihapus).
 
 ## Instal di Android
 1. Unduh APK di atas.
