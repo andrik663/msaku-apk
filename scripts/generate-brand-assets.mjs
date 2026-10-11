@@ -81,3 +81,11 @@ for(const dir of ['public','www']) {
 }
 console.log(`Generated ${outputs.length} brand assets from exact canonical Lapak M`)
 console.log(outputs.join('\n'))
+
+// Android small notification icons: white canonical M with transparent surround.
+for (const folder of (await fs.readdir(path.join(root, res))).filter(n => n.startsWith('drawable'))) {
+ const file = `${res}/${folder}/ic_stat_onesignal_default.png`;
+ try { await fs.access(path.join(root,file)) } catch { continue }
+ const {width:w,height:h}=await sharp(path.join(root,file)).metadata();
+ await png(file,w,h,svg(w,h,placed(w,h,Math.min(w,h)*0.86)));
+}
