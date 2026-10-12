@@ -78,7 +78,10 @@ public class InboxSyncReceiver extends BroadcastReceiver {
         if (userId == null || userId.isEmpty()) return;
 
         android.app.AlarmManager am = (android.app.AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-        if (am == null) return;
+        if (am == null) {
+            Log.e(TAG, "schedule skipped: AlarmManager unavailable");
+            return;
+        }
         long when = System.currentTimeMillis() + Math.max(15_000L, delayMs);
         android.app.PendingIntent pi = pendingIntent(context);
         try {
@@ -121,6 +124,7 @@ public class InboxSyncReceiver extends BroadcastReceiver {
         InputStream stream = code >= 200 && code < 300 ? conn.getInputStream() : conn.getErrorStream();
         if (stream == null) {
             conn.disconnect();
+            Log.w(TAG, "inbox HTTP " + code + " (empty body)");
             return;
         }
         BufferedReader reader = new BufferedReader(new InputStreamReader(stream));
@@ -147,6 +151,7 @@ public class InboxSyncReceiver extends BroadcastReceiver {
         }
 
         Set<String> keep = new HashSet<>();
+        int notified = 0;
         for (int i = 0; i < items.length(); i++) {
             JSONObject n = items.getJSONObject(i);
             String id = String.valueOf(n.optInt("id", 0));
@@ -166,6 +171,7 @@ public class InboxSyncReceiver extends BroadcastReceiver {
                     : "/dm";
             AppNotifier.show(context, title, message, kind, deeplink, kind + "-" + id);
             seen.add(id);
+            notified++;
         }
 
         // Keep only ids still unread so a re-unread later can alert again.
@@ -176,5 +182,6 @@ public class InboxSyncReceiver extends BroadcastReceiver {
             out.append(id);
         }
         prefs.edit().putString(KEY_SEEN_IDS, out.toString()).apply();
+        Log.d(TAG, "inbox sync ok items=" + items.length() + " notified=" + notified);
     }
 }

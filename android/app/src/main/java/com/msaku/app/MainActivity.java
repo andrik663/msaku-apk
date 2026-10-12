@@ -295,7 +295,18 @@ public class MainActivity extends BridgeActivity {
                                            @NonNull String[] permissions,
                                            @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        Log.d(TAG, "onRequestPermissionsResult: code=" + requestCode);
+        int deniedCount = 0;
+        StringBuilder denied = new StringBuilder();
+        for (int i = 0; i < permissions.length; i++) {
+            if (i >= grantResults.length || grantResults[i] != PackageManager.PERMISSION_GRANTED) {
+                deniedCount++;
+                if (denied.length() > 0) denied.append(",");
+                denied.append(permissions[i]);
+            }
+        }
+        Log.d(TAG, "onRequestPermissionsResult: code=" + requestCode
+                + " granted=" + (permissions.length - deniedCount) + "/" + permissions.length
+                + (deniedCount > 0 ? " denied=" + denied : ""));
 
         // Use a small delay to ensure the dialog has fully dismissed
         // before showing the next permission dialog

@@ -128,6 +128,7 @@ public class NativeBridge {
             AlarmScheduler.cancelAll(context);
 
             // Schedule each enabled alarm
+            int scheduled = 0;
             for (int i = 0; i < alarms.length(); i++) {
                 JSONObject alarm = alarms.getJSONObject(i);
 
@@ -144,9 +145,10 @@ public class NativeBridge {
                 String label = alarm.optString("label", name);
 
                 AlarmScheduler.schedule(context, i, name, label, hour, minute, audioUrl, volume);
+                scheduled++;
             }
 
-            Log.d(TAG, "All alarms scheduled successfully");
+            Log.d(TAG, "All alarms scheduled: " + scheduled + "/" + alarms.length());
         } catch (Exception e) {
             Log.e(TAG, "Error scheduling alarms: " + e.getMessage(), e);
         }
